@@ -14,7 +14,7 @@ const HomeSortFilter = ({setSortedFilteredUniversities}) => {
 
   useEffect(()=>{
     sortAndFilterUniversities(sortDirection, filteredCountry);
-  },[universityList])
+  },[universityList, sortDirection, filteredCountry])
 
   const sortUniversities = direction => {
     const sortedUniversities = [...universityList]
@@ -47,12 +47,10 @@ const HomeSortFilter = ({setSortedFilteredUniversities}) => {
 
   const handleSort = newSortDirection => {
     setSortDirection(newSortDirection)
-    sortAndFilterUniversities(newSortDirection, filteredCountry)
   }
 
   const handleFilter = selectedCountry => {
     setFilteredCountry(selectedCountry)
-    sortAndFilterUniversities(sortDirection, selectedCountry)
   }
 
   return (
