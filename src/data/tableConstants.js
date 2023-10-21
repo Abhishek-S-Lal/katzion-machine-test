@@ -1,7 +1,7 @@
 import React from 'react'
 
 // This is the table constant/settings which needed to render table elements
-export const tableConstants = handleEdit => {
+export const tableConstants = ({handleEdit, handleDelete}) => {
   return [
     {
       title: 'University',
@@ -26,9 +26,22 @@ export const tableConstants = handleEdit => {
       title: 'Action',
       render: rowData => {
         return (
-          <button className='btn btn-warning' style={{padding:"0.25rem 1rem"}} onClick={handleEdit(rowData)}>
-            Edit
-          </button>
+          <div className='d-flex gap-2'>
+            <button
+              className='btn btn-warning'
+              style={{ padding: '0.25rem 1rem' }}
+              onClick={()=>handleEdit(rowData)}
+            >
+              Edit
+            </button>
+            <button
+              className='btn btn-danger'
+              style={{ padding: '0.25rem 1rem' }}
+              onClick={()=>handleDelete(rowData)}
+            >
+              Delete
+            </button>
+          </div>
         )
       }
     }

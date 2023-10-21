@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-const CustomTable = ({ cols, data, bordered, hoverable, striped, isDark }) => {
+const CustomTable = ({ cols, data, bordered = true, hoverable = false, striped = false, isDark = false }) => {
     return (
         <div className="table-responsive">
             <table className={`table ${bordered ? 'table-bordered' : 'table-borderless'} ${hoverable && 'table-hover'} ${striped && 'table-striped'} ${isDark && 'table-dark'}`}>
@@ -24,22 +24,6 @@ const CustomTable = ({ cols, data, bordered, hoverable, striped, isDark }) => {
             </table>
         </div>
     )
-}
-
-CustomTable.propTypes = {
-    cols: PropTypes.array.isRequired,
-    data: PropTypes.array.isRequired,
-    bordered: PropTypes.bool,
-    hoverable: PropTypes.bool,
-    striped: PropTypes.bool,
-    isDark: PropTypes.bool,
-}
-
-CustomTable.defaultProps = {
-    bordered: true,
-    hoverable: false,
-    striped: false,
-    isDark: false,
 }
 
 export default CustomTable;
