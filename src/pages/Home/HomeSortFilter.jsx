@@ -58,7 +58,7 @@ const HomeSortFilter = ({setSortedFilteredUniversities}) => {
   }
 
   return (
-    <div className='d-flex gap-2 justify-content-between mb-3 mt-2'>
+    <div className='d-flex gap-2 justify-content-between flex-wrap mb-3 mt-2'>
       <div>
         <label className='me-2'>Page Sort by: </label>
         <select
