@@ -13,8 +13,9 @@ const HomeSortFilter = ({setSortedFilteredUniversities}) => {
   const [filteredCountry, setFilteredCountry] = useState('') 
 
   useEffect(()=>{
-    sortAndFilterUniversities(sortDirection, filteredCountry);
-  },[universityList, sortDirection, filteredCountry, sortAndFilterUniversities])
+    sortAndFilterUniversities();
+    // eslint-disable-next-line
+  },[universityList, sortDirection, filteredCountry])
 
   const sortUniversities = direction => {
     const sortedUniversities = [...universityList]
@@ -33,26 +34,27 @@ const HomeSortFilter = ({setSortedFilteredUniversities}) => {
     return sortedUniversities
   }
 
-  const filterUniversities = (data, country) => {
+  const filterUniversities = (universities, country) => {
     if (!country) {
-      return data
+      return universities
     }
-    return data.filter(university => university.country === country)
+    return universities.filter(university => university.country === country)
   }
 
-  function sortAndFilterUniversities (direction, country)  {
-    const newList = filterUniversities(sortUniversities(direction), country);
+  function sortAndFilterUniversities ()  {
+    const sortedList = sortUniversities(sortDirection);
+    const newList = filterUniversities(sortedList, filteredCountry);
     setSortedFilteredUniversities(newList);
   }
 
   const handleSort = newSortDirection => {
     setSortDirection(newSortDirection)
-    sortAndFilterUniversities(newSortDirection, filteredCountry)
+    // sortAndFilterUniversities(newSortDirection, filteredCountry)
   }
 
   const handleFilter = selectedCountry => {
     setFilteredCountry(selectedCountry)
-    sortAndFilterUniversities(sortDirection, selectedCountry)
+    // sortAndFilterUniversities(sortDirection, selectedCountry)
   }
 
   return (

@@ -26,12 +26,13 @@ const Home = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [selectedItem, setSelectedItem] = useState(null)
 
-  let lastColor = localStorage.getItem('lastColor') || backgroundColors[0]
-  let lastColorIndex = backgroundColors.indexOf(lastColor)
-
   useEffect(() => {
+    const lastColor = localStorage.getItem('lastColor') || backgroundColors[0]
+    const lastColorIndex = backgroundColors.indexOf(lastColor)
+
     const nextColorIndex = (lastColorIndex + 1) % backgroundColors.length
     const nextColor = backgroundColors[nextColorIndex]
+
     document.body.style.backgroundColor = nextColor
     localStorage.setItem('lastColor', nextColor)
   }, [])
