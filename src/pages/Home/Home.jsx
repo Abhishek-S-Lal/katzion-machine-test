@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CustomTable from '../../components/Table/CustomTable'
 import { tableConstants } from '../../data/tableConstants'
 // import { data } from '../../constants/mockData'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {
   addAllUniversities,
   addUniversity,
@@ -30,8 +30,8 @@ const Home = () => {
   let lastColorIndex = backgroundColors.indexOf(lastColor)
 
   useEffect(() => {
-    lastColorIndex = (lastColorIndex + 1) % backgroundColors.length
-    const nextColor = backgroundColors[lastColorIndex]
+    const nextColorIndex = (lastColorIndex + 1) % backgroundColors.length
+    const nextColor = backgroundColors[nextColorIndex]
     document.body.style.backgroundColor = nextColor
     localStorage.setItem('lastColor', nextColor)
   }, [])
@@ -51,7 +51,7 @@ const Home = () => {
         dispatch(addAllUniversities(result.data))
       }
     })
-  }, [offset])
+  }, [offset, dispatch])
 
   const handleEdit = item => {
     setShowModal(true)

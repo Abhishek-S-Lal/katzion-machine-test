@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types'
 
 const CustomTable = ({ cols, data, bordered = true, hoverable = false, striped = false, isDark = false }) => {
     return (

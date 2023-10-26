@@ -37,7 +37,7 @@ const Pagination = ({ itemsPerPage, totalItems, setPage, page }) => {
           previousLinkClassName={"page-link"}
           nextClassName={"page-item"}
           nextLinkClassName={"page-link"}
-          activeClassName={"active " + "page-" + page}
+          activeClassName={`active page-${page}`}
           disabledClassName={"d-none"}
           renderOnZeroPageCount={null}
         />
