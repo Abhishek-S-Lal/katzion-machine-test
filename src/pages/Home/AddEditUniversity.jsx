@@ -3,7 +3,7 @@ import { useForm, Controller } from 'react-hook-form'
 import CustomModal from '../../components/CustomModal/CustomModal'
 
 export const AddEditUniversity = ({ selected, handleClose, onSubmit }) => {
-  const { control, handleSubmit, errors } = useForm()
+  const { control, handleSubmit, formState: { errors } } = useForm()
 console.log(errors)
   return (
     <CustomModal
@@ -22,7 +22,7 @@ console.log(errors)
             name='name'
             control={control}
             defaultValue={selected ? selected?.name : ''}
-            rules={{ required: 'Name is required', minLength: 3 }}
+            rules={{ required: 'Name is required', minLength: {value:3, message: "Minimum characters is 3"} }}
             render={({ field }) => (
               <input
                 type='text'
