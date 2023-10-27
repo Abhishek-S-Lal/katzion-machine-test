@@ -51,7 +51,7 @@ const Home = () => {
       if (result.data) {
         dispatch(addAllUniversities(result.data))
       }
-    })
+    }).catch((err)=>console.log(err))
   }, [offset, dispatch])
 
   const handleEdit = item => {
@@ -83,7 +83,6 @@ const Home = () => {
     }
 
     dispatch(addUniversity(newUniversity))
-
     handleCloseModal()
   }
 

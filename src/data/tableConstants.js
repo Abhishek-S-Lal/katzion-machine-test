@@ -1,6 +1,5 @@
 import React from 'react'
 
-// This is the table constant/settings which needed to render table elements
 export const tableConstants = ({handleEdit, handleDelete}) => {
   return [
     {
